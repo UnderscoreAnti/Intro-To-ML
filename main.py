@@ -15,7 +15,7 @@ column = df["Fare"]
 print(column)
 
 # And this returns a smaller data frame
-small_df = df["Age", "Survived", "Sex"]
+small_df = df[["Age", "Survived", "Sex"]]
 print(small_df.head())
 
 
