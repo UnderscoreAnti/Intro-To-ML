@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as ny
-import matplotlib as mpl
+import matplotlib.pyplot as plt
 
 
 # Pandas reads the CSV files and coverts it into usable data
@@ -33,11 +33,28 @@ two_d_arr_shape = two_d_array.shape
 # print(two_d_arr_shape)
 
 # Just for the sake of computational science, remember:
-ex_one = two_d_array[0, 1]  # Gets the second row of the first column
+ex_one = two_d_array[0, 1]  # Gets the first row of the second column
 ex_two = two_d_array[0]  # Gets a single row
 ex_three = two_d_array[:, 2]  # Gets the entire age column
 
 # Suppose we want requirements, let's mask some data:
-mask_ex_one = ex_three < 18
-print(two_d_array[mask_ex_one])
+mask_ex_one = ex_three < 18  # Gets the number of minors on the ship
+# print(two_d_array[mask_ex_one])  # It needs to be plugged in to be a good mask
 
+sum_of_children = mask_ex_one.sum()  # Returns 2
+
+# Coding exercise
+high_class_sum = (two_d_array[:, 0] == 1).sum()
+
+# We can use scatter to plot our data
+plt.scatter(df['Age'], df['Fare'], c=df['Pclass'])
+
+# Set the X and Ys
+plt.xlabel("Age")
+plt.ylabel("Fare")
+
+# And plot a line
+plt.plot([0, 80], [85, 5])
+
+# Required at the end to show the data.
+plt.show()
